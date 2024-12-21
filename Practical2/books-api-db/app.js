@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const booksController = require("./controllers/booksController");
 const sql = require("mssql"); // Assuming you've installed mssql
 const dbConfig = require("./dbConfig");

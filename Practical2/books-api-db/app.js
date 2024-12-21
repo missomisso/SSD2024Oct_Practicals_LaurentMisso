@@ -3,6 +3,7 @@ const booksController = require("./controllers/booksController");
 const sql = require("mssql"); // Assuming you've installed mssql
 const dbConfig = require("./dbConfig");
 const bodyParser = require("body-parser"); // Import body-parser
+const validateBook = require("./middlewares/validateBook");
 
 
 const app = express();
@@ -13,8 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // For form data handling
 
 app.get("/books", booksController.getAllBooks);
 app.get("/books/:id", booksController.getBookById);
-app.post("/books", booksController.createBook); // POST for creating books (can handle JSON data)
-app.put("/books/:id", booksController.updateBook); // PUT for updating books
+app.post("/books", validateBook, booksController.createBook); // POST for creating books (can handle JSON data)
+app.put("/books/:id", validateBook, booksController.updateBook); // PUT for updating books
 app.delete("/books/:id", booksController.deleteBook); // DELETE for deleting books
 
 app.listen(port, async () => {

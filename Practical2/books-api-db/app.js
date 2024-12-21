@@ -1,12 +1,13 @@
+
 const express = require("express");
 const sql = require("mssql"); // Assuming you've installed mssql
 const dbConfig = require("./dbConfig");
-console.error("2:");
+
 
 const app = express();
-console.error("Database connection error:", err);
+
 const port = process.env.PORT || 3000; // Use environment variable or default port
-console.error("Database connection error:", err);
+
 app.listen(port, async () => {
   try {
     // Connect to the database

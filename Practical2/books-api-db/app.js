@@ -8,6 +8,9 @@ const app = express();
 
 const port = process.env.PORT || 3000; // Use environment variable or default port
 
+app.get("/books", booksController.getAllBooks);
+app.get("/books/:id", booksController.getBookById);
+
 app.listen(port, async () => {
   try {
     // Connect to the database
@@ -30,3 +33,4 @@ process.on("SIGINT", async () => {
   console.log("Database connection closed");
   process.exit(0); // Exit with code 0 indicating successful shutdown
 });
+

@@ -9,9 +9,11 @@ const validateBook = require("./middlewares/validateBook");
 
 const app = express();
 const port = process.env.PORT || 3000; // Use environment variable or default port
+const staticMiddleware = express.static("public"); // Path to the public folder
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // For form data handling
+app.use(staticMiddleware);
 
 app.get("/books", booksController.getAllBooks);
 app.get("/books/:id", booksController.getBookById);
@@ -41,4 +43,5 @@ process.on("SIGINT", async () => {
   console.log("Database connection closed");
   process.exit(0); // Exit with code 0 indicating successful shutdown
 });
+
 

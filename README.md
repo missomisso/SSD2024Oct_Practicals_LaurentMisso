@@ -4,3 +4,5 @@ Practicals For Server-Side Development Under Diploma In Full Stack Development
 
 List is as such
 1. Practical 1
+2. Practical 2
+3. PolytechnicLibraryAPI
